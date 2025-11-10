@@ -1,0 +1,130 @@
+//  AWARDS
+
+.awards {
+   @include adaptiveValue('margin-bottom', 280, 60);
+   position: relative;
+   padding-top: 14px;
+   padding-bottom: 100px;
+
+		&__background {
+         width: 100%;
+         height: 100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: -1;
+         img {
+            @extend %img;
+         }
+		}
+
+		&__head {
+         display: flex;
+         justify-content: flex-end;
+         gap: 213px;
+         align-items: center;
+         margin-bottom: 45px;
+		}
+
+		&__left-head {
+         max-width: 430px;
+		}
+
+		&__stars-head {
+         display: flex;
+         justify-content: flex-end;
+         width: 100%;
+         overflow: hidden;
+         transform: translateY(30px);
+         img {
+            width: 249px;
+         }
+		}
+
+		&__text-head {
+         color: $textColorBlack;
+         font-size: 24px;
+         font-weight: $medium;
+         line-height: 1.25;
+         span {
+            font-weight: $bold;
+         }
+		}
+
+		&__right-head {
+         width: 285px;
+         height: 285px;
+         overflow: hidden;
+         img {
+            @extend %img;
+         }
+		}
+
+		&__body {
+         display: flex;
+         justify-content: center;
+         align-items: flex-start;
+		}
+
+		&__list-cards {
+         max-width: 978px;
+         display: flex;
+         justify-content: center;
+         align-items: stretch;
+         gap: 14px;
+         flex-wrap: wrap;
+		}
+
+      &__item-card {
+         width: 234px;
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+         align-items: center;
+         padding: 20px;
+         background-color: $textColorWhite;
+         border-radius: 10px;
+         box-shadow: 0 0 5px 0 #EEE;
+         min-height: 100%;
+		}
+
+      &__item-card:nth-child(6) .awards__img-card {
+         width: 118px;
+      }
+
+		&__img-card {
+         width: 52px;
+         height: 48px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-bottom: 16px;
+         img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+         }
+		}
+
+		&__title-card {
+         color: $textColorBlack;
+         font-size: 18px;
+         font-weight: $bold;
+         line-height: 1.45;
+         margin-bottom: 6px;
+		}
+
+		&__text-card {
+         color: #4B3D3D;
+         font-weight: $regular;
+         line-height: 1.44;
+         text-align: center;
+         flex-grow: 1;
+		}
+
+      &__banner {
+         position: absolute;
+         left: 0;
+         bottom: -215px;
+      }
+}

@@ -1,0 +1,140 @@
+// MY ACCOUNTING
+
+.my-accounting {
+	@include adaptiveValue('margin-bottom', 100, 60);
+
+		&__container {
+		}
+
+		&__block {
+		}
+
+		&__head {
+			text-align: center;
+			margin-bottom: 42px;
+		}
+
+		&__top {
+			margin-bottom: 8px;
+			display: flex;
+			gap: 10px;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&__img {
+			width: 32px;
+			height: 32px;
+			overflow: hidden;
+			img {
+				@extend %img;
+			}
+		}
+
+		&__hint {
+		}
+
+		&__title {
+			margin-bottom: 14px;
+		}
+
+		&__text {
+			position: relative;
+			span {
+				font-weight: $bold;
+			}
+		}
+
+		&__body {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 20px;
+		}
+
+		&__left-body {
+			width: 63%;
+			padding: 28px 56px;
+		}
+
+		&__img-left {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			img {
+				@extend %img;
+			}
+		}
+
+		&__right-body {
+			width: 280px;
+		}
+
+		&__list {
+			width: 270px;
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			justify-content: flex-start;
+			align-items: flex-start;
+			margin-bottom: 18px;
+		}
+
+		&__item-list {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: 10px;
+			span {
+				width: 100%;
+			}
+		}
+
+		&__icon {
+			width: 42px !important;
+			height: 42px !important;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			img {
+				flex-shrink: 0;
+				@extend %img;
+			}
+		}
+
+		&__start-button {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 4px;
+			color: #FF4554;
+			font-size: 20px;
+			font-weight: $bold;
+			line-height: 1.5;
+		}
+
+		&__arrow {
+			width: 28px;
+			height: 28px;
+			overflow: hidden;
+			img {
+				@extend %img;
+			}
+		}
+
+	.yellow {
+		position: absolute;
+		left: 235px;
+		top: 0;
+		background-color: #FFEF80;
+		color: $textColorBlack;
+		text-align: center;
+		font-size: 20px;
+		font-weight: $bold;
+		line-height: 1.5;
+		padding-inline: 7px;
+	}
+}
+
+

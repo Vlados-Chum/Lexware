@@ -1,0 +1,36 @@
+// FUNCTIONS FIRST
+
+.functions-third {
+   @include adaptiveValue('margin-bottom', 100, 60);
+
+		&__block {
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+		}
+
+		&__head {
+         text-align: center;
+         max-width: 700px;
+         margin: 0 auto;
+         margin-bottom: 42px;
+		}
+
+		&__title {
+         margin-bottom: 14px;
+		}
+
+		&__body {
+         display: flex;
+         justify-content: space-between;
+         gap: 30px;
+         align-items: flex-start;
+         margin-bottom: 50px;
+		}
+
+      &__bottom {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+}

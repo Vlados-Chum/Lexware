@@ -1,0 +1,126 @@
+// HERO
+
+.hero {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	@include adaptiveValue('padding-top', 172, 132);
+	@include adaptiveValue('padding-bottom', 172, 132);
+
+	&__background {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		z-index: -1;
+		img {
+			@extend %img;
+		}
+	}
+
+	&__block {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__head {
+		margin-bottom: 42px;
+	}
+
+	&__title {
+		color: $textColorWhite;
+		text-align: center;
+		font-size: 48px;
+		font-weight: $extraBold;
+		line-height: 1.15;
+		margin-bottom: 24px;
+	}
+
+	&__text {
+		color: #FFF;
+		text-align: center;
+		font-size: 17px;
+		font-style: normal;
+		font-weight: $bold;
+		line-height: 1.7;
+	}
+
+	&__body {
+		display: flex;
+		gap: 20px;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+
+	&__left-body {
+		width: 62%;
+	}
+
+	&__img-left {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		img {
+			@extend %img;
+		}
+	}
+
+	&__right-body {
+		width: 37%;
+	}
+
+	&__right-title {
+		color: $textColorWhite;
+		font-size: 17px;
+		font-weight: $bold;
+		line-height: 1.7;
+		margin-bottom: 17px;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		justify-content: flex-start;
+		align-items: flex-start;
+		margin-bottom: 28px;
+	}
+
+	&__item-list {
+		color: $textColorWhite;
+		font-size: 17px;
+		font-weight: $bold;
+		line-height: 1.7;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__tick {
+		width: 24px;
+		height: 24px;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			width: 16px;
+			height: 12px;
+		}
+	}
+
+	&__item-text {
+	}
+
+	&__start-button {
+		max-width: 250px;
+		background-color: $textColorWhite;
+		color: #131010;
+	}
+}
+

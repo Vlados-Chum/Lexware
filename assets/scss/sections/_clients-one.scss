@@ -1,0 +1,73 @@
+// CLIENTS ONE
+
+.clients-one {
+   margin-top: 54px;
+   @include adaptiveValue('margin-bottom', 100, 60);
+   position: relative;
+
+		&__background {
+         width: 100%;
+         height: 100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: -1;
+         img {
+            @extend %img;
+         }
+		}
+
+		&__block {
+         padding: 80px 90px;
+		}
+
+		&__head {
+         text-align: center;
+         max-width: 700px;
+         margin: 0 auto;
+         margin-bottom: 42px;
+		}
+
+		&__title {
+         margin-bottom: 14px;
+		}
+
+		&__text {
+         color: $textColorWhite;
+		}
+
+		&__list {
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         gap: 20px;
+		}
+
+		&__item {
+         width: 300px;
+		}
+
+		&__icon-item {
+         width: 52px;
+         height: 52px;
+         overflow: hidden;
+         margin-bottom: 8px;
+         img {
+            @extend %img;
+         }
+		}
+
+		&__num-item {
+         color: $textColorWhite;
+         font-size: 24px;
+         font-weight: $bold;
+         line-height: 1.25;
+         margin-bottom: 10px;
+		}
+
+		&__text-item {
+         color: $textColorWhite;
+		}
+}
+

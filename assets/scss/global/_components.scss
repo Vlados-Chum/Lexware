@@ -1,0 +1,245 @@
+// TITLE
+
+.title {
+   color: $textColorBlack;
+   text-align: center;
+   font-family: $mainFontFamily;
+   font-size: $h2;
+   font-style: normal;
+   font-weight: $extraBold;
+   line-height: 1.34;
+   &--white {
+      color: $textColorWhite;
+   }
+}
+
+// TEXT
+
+.text {
+   color: $textColorBlack;
+   font-family: $mainFontFamily;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: $medium;
+   line-height: 1.5;
+   &--bold {
+      font-weight: $bold;
+   }
+   &--red {
+      color: #FF4554;
+      text-decoration: underline;
+   }
+}
+
+// TABS TITLE
+
+.tabs-title {
+   color: $textColorBlack;
+   font-family: $mainFontFamily;
+   font-size: 17px;
+   font-style: normal;
+   font-weight: $bold;
+   line-height: 1.71;
+}
+
+// DISCOUNT BUTTON
+
+.discount-button {
+   display: flex;
+   max-width: 250px;
+   padding: 21px 45px;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   background-color: $buttonColor;
+   color: $textColorWhite;
+   font-family: $mainFontFamily;
+   font-size: 16px;
+   font-weight: $bold;
+   line-height: normal;
+   &__arrow {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+   }
+}
+
+// START BUTTON 
+
+.start-button {
+   display: flex;
+   max-width: 300px;
+   padding: 21px 45px;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   color: $textColorWhite;
+   background-color: $buttonColor;
+   font-size: 17px;
+   font-weight: $bold;
+   line-height: 1.71;
+   &__arrow {
+      width: 23px;
+      height: 23px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      img {
+         @extend %img;
+      }
+   }
+}
+
+// TABS LEFT
+
+.left {
+   position: relative;
+
+		&__img {
+         position: absolute;
+         right: 10px;
+         top: -23px;
+         width: 47px;
+         height: 47px;
+         overflow: hidden;
+         img {
+            @extend %img;
+         }
+		}
+
+		// .left__list
+
+		&__list {
+         max-width: 255px;
+         margin-left: 73px;
+		}
+
+		// .left__item
+
+		&__item {
+         padding: 10px 22px;
+         color: $textColorBlack;
+         font-size: 17px;
+         font-weight: $bold;
+         line-height: 1.7;
+         cursor: pointer;
+         &:hover,
+         &:active {
+            color: $textColorWhite;
+            background-color: #FF4554;
+         }
+		}
+}
+
+// TABS RIGHT
+
+.right {
+
+		// .right__block
+
+		&__block {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         gap: 20px;
+		}
+
+		// .right__pic
+
+		&__pic {
+         background-color: #ECE6E6;
+         max-width: 407px;
+         padding: 40px;
+         img {
+            @extend %img;
+         }
+		}
+
+		// .right__desc
+
+		&__desc {
+		}
+
+		// .right__title-desc
+
+		&__title-desc {
+         margin-bottom: 24px;
+         max-width: 220px;
+         span {
+            font-weight: $bold;
+         }
+		}
+
+		// .right__list-desc
+
+		&__list-desc {
+         max-width: 377px;
+         display: flex;
+         flex-direction: column;
+         gap: 9px;
+         justify-content: flex-start;
+         align-items: flex-start;
+         margin-bottom: 28px;
+		}
+
+		// .right__item-desc
+
+		&__item-desc {
+         display: flex;
+         justify-content: flex-start;
+         align-items: flex-start;
+         gap: 10px;
+         span {
+            font-weight: $bold;
+         }
+		}
+
+		// .right__tick-item
+
+		&__tick-item {
+         width: 24px;
+         height: 24px;
+         overflow: hidden;
+         flex-shrink: 0;
+         img {
+            @extend %img;
+         }
+		}
+
+		// .right__text-item
+
+		&__text-item {
+		}
+
+		&__buttons {
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+         align-items: flex-start;
+         gap: 8px;
+		}
+
+		&__button {
+         display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 4px;
+			color: #FF4554;
+			font-size: 20px;
+			font-weight: $bold;
+			line-height: 1.5;
+		}
+
+		&__arrow {
+         width: 28px;
+			height: 28px;
+			overflow: hidden;
+			img {
+				@extend %img;
+			}
+		}
+}

@@ -1,0 +1,58 @@
+// FOOTER
+
+.footer {
+   background-color: $textColorBlack;
+
+   &__container {
+   padding-top: 40px;
+   padding-bottom: 40px;
+   }
+   
+		&__block {
+         max-width: 500px;
+         margin: 0 auto;
+         display: flex;
+         flex-direction: column;
+         gap: 34px;
+         justify-content: flex-start;
+         align-items: center;
+		}
+
+		&__logo {
+         width: 175px;
+		}
+
+		&__links {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+		}
+
+		a {
+         color: #ECEDF0;
+         font-size: 14px;
+         font-weight: $regular;
+         line-height: 1.57;
+         padding-right: 19px;
+         border-right: 1px solid #ECEDF0;
+         padding-left: 19px;
+		}
+
+      a:last-child {
+         border-right: none;
+         padding-right: 0;
+      }
+
+      a:first-child {
+         padding-left: 0;
+      }
+
+		&__impressum {
+		}
+
+		&__datenschutz {
+		}
+
+		&__privacy {
+		}
+}

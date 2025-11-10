@@ -1,0 +1,123 @@
+// HERO
+
+.banner {
+	width: 100%;
+	transform: rotate(-2deg) skew(-2deg) translateY(-30px);
+
+	&__link {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #FFEF80;
+	}
+
+	&__container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 60px;
+	}
+
+	&__left {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__deal {
+		color: #FF4554;
+		font-size: 42px;
+		font-weight: $bold;
+		border-radius: 12px;
+		border: 4px solid #FF4554;
+		padding: 17px 19px 15px 22px;
+	}
+
+	&__center {
+		width: 305px;
+		height: 156px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	&__center-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		img {
+			@extend %img;
+		}
+	}
+
+	&__center-group {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 12px;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__center-left {
+		font-family: $mainFontFamily;
+		color: #FF4554;
+		font-size: 145px;
+		font-weight: $extraBold;
+	}
+
+	&__center-right {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+
+	&__center-percent {
+		color: #FF4554;
+		font-size: 77px;
+		font-weight: $extraBold;
+	}
+
+	&__center-text {
+		color: #FF4554;
+		font-size: 34px;
+		font-weight: $bold;
+		text-transform: uppercase;
+	}
+
+	&__right {
+		padding-block: 30px;
+
+		display: flex;
+		flex-direction: column;
+		gap: 13px;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+
+	&__right-top {
+		color: $textColorBlack;
+		font-size: 17px;
+		font-weight: $medium;
+		line-height: 1.18;
+	}
+
+	&__right-top-red {
+		color: #FF4554;
+		font-weight: $bold;
+	}
+
+	&__bottom {
+		width: 200px;
+		color: $textColorBlack;
+		font-size: 17px;
+		font-weight: $bold;
+		line-height: 1.18;
+	}
+}
