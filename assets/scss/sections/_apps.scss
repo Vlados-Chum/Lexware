@@ -1,0 +1,235 @@
+// APPS
+
+.apps {
+   @include adaptiveValue('margin-bottom', 100, 60);
+
+		&__block {
+         padding-inline: 76px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         gap: 20px;
+		}
+
+		&__left {
+         max-width: 492px;
+         width: 100%;
+         padding-block: 94px;
+		}
+
+		&__swiper {
+         position: relative;
+         margin-bottom: 22px;
+         overflow: hidden;
+		}
+
+      .swiper-container {
+         width: 100%;
+      }
+
+      .swiper-wrapper {
+         margin-bottom: 22px;
+         overflow: hidden;
+      }
+
+      .swiper-slide {
+         width: 100%;
+      }
+
+		&__seal-img {
+         position: absolute;
+         right: 30px;
+         bottom: 0;
+         width: 127px;
+         height: 127px;
+         img {
+            @extend %img;
+         }
+		}
+
+		&__slide {
+         width: 100%;
+         position: relative;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         cursor: grab;
+		}
+
+      .swiper-pagination-bullet {
+         width: 8px;
+         height: 8px;
+         border-radius: 0;
+         background-color: black;
+         &-active {
+            width: 33px;
+         }
+      }
+
+      .swiper-pagination-bullets.swiper-pagination-bullets.swiper-pagination-horizontal {
+         width: 100%;
+         display: flex;
+         justify-content: center;
+         z-index: 10;
+      }
+
+      &__swiper-button-prev,
+      &__swiper-button-next {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 43px;
+         height: 43px;
+         border-radius: 36px;
+         border: 1px solid #A79797;
+         background: rgba(255, 255, 255, 0.6); 
+         cursor: pointer;
+         z-index: 20;
+         position: absolute;
+         bottom: 355px;
+         transition: all .2s ease-in-out;
+         &:hover {
+            background-color: $textColorBlack;
+         }
+      }
+
+      &__swiper-button-next {
+         right: 6px;
+         svg {
+            transform: rotate(180deg);
+         }
+      }
+
+      &__swiper-button-prev {
+         left: 6px;
+      }
+
+		&__img {
+         width: 334px;
+         height: 684px;
+         overflow: hidden;
+         img {
+            @extend %img;
+         }
+		}
+
+		&__controls {
+         position: relative;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+		}
+
+		
+
+		&__pagination {
+         position: absolute;
+		}
+
+		&__items {
+         display: flex;
+         gap: 10px;
+         justify-content: center;
+         align-items: center;
+		}
+
+		&__store {
+		}
+
+		&__market {
+		}
+
+		&__right {
+         max-width: 452px;
+         width: 100%;
+		}
+
+		&__title {
+         margin-bottom: 42px;
+		}
+
+		&__list {
+         padding-inline: 60px;
+         margin-bottom: 32px;
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+         justify-content: flex-start;
+         align-items: flex-start;
+		}
+
+		&__item {
+         display: flex;
+         justify-content: flex-start;
+         align-items: flex-start;
+         gap: 10px;
+         a {
+            color: #FF4554;
+            text-decoration: underline;
+         }
+		}
+
+		&__tick-item {
+         flex-shrink: 0;
+         width: 24px;
+         height: 24px;
+         img {
+            @extend %img;
+         }
+		}
+
+		&__text-item {
+         color: $textColorBlack;
+         font-size: 20px;
+         font-weight: $bold;
+         line-height: 1.5;
+		}
+
+		&__list-inner {
+         padding-left: 20px;
+
+		}
+
+		&__item-inner {
+         font-weight: $medium;
+         list-style: disc;
+         span {
+            font-weight: $bold;
+         }
+		}
+
+		&__rate {
+         display: flex;
+         gap: 10px;
+		}
+
+		&__item-rate {
+         display: flex;
+         width: 147px;
+         height: 137px;
+         padding: 16px;
+         flex-direction: column;
+         align-items: flex-start;
+         gap: 10px;
+         border-radius: 10px;
+         border: 1px solid rgba(235, 231, 231, 0.68);
+         background: $textColorWhite;
+         box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.03);
+		}
+
+		&__item-top {
+		}
+
+		&__num {
+		}
+
+		&__star {
+		}
+
+		&__item-center {
+		}
+
+		&__item-bottom {
+		}
+}
+

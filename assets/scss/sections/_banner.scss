@@ -3,6 +3,7 @@
 .banner {
 	width: 100%;
 	transform: rotate(-2deg) skew(-2deg) translateY(-30px);
+	@include adaptiveValue('margin-bottom', 40, 20);
 
 	&__link {
 		display: flex;

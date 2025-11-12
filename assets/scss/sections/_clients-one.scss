@@ -2,7 +2,7 @@
 
 .clients-one {
    margin-top: 54px;
-   @include adaptiveValue('margin-bottom', 100, 60);
+   @include adaptiveValue('margin-bottom', 140, 100);
    position: relative;
 
 		&__background {

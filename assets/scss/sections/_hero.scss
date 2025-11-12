@@ -58,6 +58,31 @@
 
 	&__left-body {
 		width: 62%;
+		position: relative;
+	}
+
+	&__label-one,
+	&__label-two {
+		overflow: hidden;
+		position: absolute;
+		
+		img {
+			@extend %img;
+		}
+	}
+
+	&__label-one {
+		width: 130px;
+		height: 130px;
+		right: 24px;
+		bottom: 7px;
+	}
+
+	&__label-two {
+		right: 160px;
+		width: 114px;
+		height: 114px;
+		bottom: 14px;
 	}
 
 	&__img-left {

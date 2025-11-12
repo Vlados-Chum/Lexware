@@ -76,8 +76,8 @@
    justify-content: center;
    align-items: center;
    gap: 10px;
-   color: $textColorWhite;
-   background-color: $buttonColor;
+   color: $textColorBlack;
+   background-color: $textColorWhite;
    font-size: 17px;
    font-weight: $bold;
    line-height: 1.71;
@@ -111,14 +111,10 @@
          }
 		}
 
-		// .left__list
-
 		&__list {
          max-width: 255px;
          margin-left: 73px;
 		}
-
-		// .left__item
 
 		&__item {
          padding: 10px 22px;
@@ -139,16 +135,12 @@
 
 .right {
 
-		// .right__block
-
 		&__block {
          display: flex;
          justify-content: space-between;
          align-items: flex-start;
          gap: 20px;
 		}
-
-		// .right__pic
 
 		&__pic {
          background-color: #ECE6E6;
@@ -159,13 +151,6 @@
          }
 		}
 
-		// .right__desc
-
-		&__desc {
-		}
-
-		// .right__title-desc
-
 		&__title-desc {
          margin-bottom: 24px;
          max-width: 220px;
@@ -173,8 +158,6 @@
             font-weight: $bold;
          }
 		}
-
-		// .right__list-desc
 
 		&__list-desc {
          max-width: 377px;
@@ -186,8 +169,6 @@
          margin-bottom: 28px;
 		}
 
-		// .right__item-desc
-
 		&__item-desc {
          display: flex;
          justify-content: flex-start;
@@ -198,8 +179,6 @@
          }
 		}
 
-		// .right__tick-item
-
 		&__tick-item {
          width: 24px;
          height: 24px;
@@ -208,11 +187,6 @@
          img {
             @extend %img;
          }
-		}
-
-		// .right__text-item
-
-		&__text-item {
 		}
 
 		&__buttons {
