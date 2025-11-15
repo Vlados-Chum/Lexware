@@ -20,16 +20,33 @@
 		&__container {
          display: flex;
          position: relative;
+         max-height: 550px;
+         overflow: hidden;
+         @media (max-width: $mobile) {
+            flex-direction: column-reverse;
+         }
+         @media (max-width: $mobileSmall) {
+            max-height: 800px;
+         }
 		}
 
 		&__left {
-         // height: 1000px;
-         // width: 1200px;
+         height: 570px;
+         width: 1200px;
+         background-image: url("/assets/img/partners/brands.png");
          background-size: 44% auto;
          background-attachment: fixed;
-         background-position: bottom left;
+         background-position: bottom left 11%;
          background-repeat: repeat-y;
          position: relative;
+         @media (max-width: $mobile) {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            min-height: 150px;
+            min-width: 100%;
+            background-size: 115% auto;
+            background-position: bottom center;
+         }
          img {
             @extend %img;
          }
@@ -40,6 +57,12 @@
          width: 100%;
          height: 100%;
          padding: 100px 20px 100px 78px;
+         @media (max-width: $tablet) {
+            padding: 120px 20px 100px 78px;
+         }
+         @media (max-width: $mobileSmall) {
+            padding: 120px 20px 100px 30px;
+         }
 		}
 
 		&__seal {
@@ -52,11 +75,22 @@
          img {
             @extend %img;
          }
+         @media (max-width: $tablet) {
+            top: 0;
+            right: -5px;
+         }
+         @media (max-width: $mobileSmall) {
+            top: 15px;
+            right: 5px;
+         }
 		}
 
 		&__block {
          max-width: 400px;
          width: 100%;
+         @media (max-width: $mobile) {
+            max-width: 100%;
+         }
       }
 
 		&__title {
@@ -79,6 +113,9 @@
          border: 1px solid #E9E9E9;
          background: $textColorWhite;
          box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.12);
+         @media (max-width: $mobile) {
+            display: none;
+         }
       }
 
       &__img-cup {

@@ -3,12 +3,6 @@
 .my-accounting {
 	@include adaptiveValue('margin-bottom', 100, 60);
 
-		&__container {
-		}
-
-		&__block {
-		}
-
 		&__head {
 			text-align: center;
 			margin-bottom: 42px;
@@ -31,14 +25,11 @@
 			}
 		}
 
-		&__hint {
-		}
-
 		&__title {
 			margin-bottom: 14px;
 		}
 
-		&__text {
+		&__text-head {
 			position: relative;
 			span {
 				font-weight: $bold;
@@ -50,11 +41,18 @@
 			justify-content: space-between;
 			align-items: center;
 			gap: 20px;
+			@media (max-width: $mobileSmall) {
+            flex-direction: column;
+         }
 		}
 
 		&__left-body {
 			width: 63%;
-			padding: 28px 56px;
+			padding: 28px 56px 0 56px;
+			@media (max-width: $mobileSmall) {
+            padding: 0;
+				width: 80%;
+         }
 		}
 
 		&__img-left {
@@ -136,5 +134,3 @@
 		padding-inline: 7px;
 	}
 }
-
-

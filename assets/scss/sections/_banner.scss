@@ -17,6 +17,11 @@
 		justify-content: center;
 		align-items: center;
 		gap: 60px;
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			gap: 20px;
+			padding-block: 30px;
+		}
 	}
 
 	&__left {
@@ -94,12 +99,15 @@
 
 	&__right {
 		padding-block: 30px;
-
 		display: flex;
 		flex-direction: column;
 		gap: 13px;
 		justify-content: flex-start;
 		align-items: flex-start;
+		@media (max-width: $mobile) {
+			align-items: center;
+			padding-block: 0;
+		}
 	}
 
 	&__right-top {
@@ -112,7 +120,35 @@
 	&__right-top-red {
 		color: #FF4554;
 		font-weight: $bold;
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: -4px;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background-color: #FF4554;
+			animation: lineGo 3s ease infinite;
+		}
 	}
+
+	@keyframes lineGo {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%; 
+	 opacity: 1;
+  }
+  55% {
+	opacity: 0.6;
+  }
+  100% {
+    width: 0; 
+	 opacity: 0;
+  }
+}
 
 	&__bottom {
 		width: 200px;

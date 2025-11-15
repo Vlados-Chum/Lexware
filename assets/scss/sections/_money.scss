@@ -4,6 +4,9 @@
    @include adaptiveValue('margin-bottom', 100, 60);
    position: relative;
    padding: 80px 90px;
+   @media (max-width: $tablet) {
+            padding: 30px 40px;
+         }
 
 		&__background {
          position: absolute;
@@ -22,6 +25,11 @@
          display: flex;
          justify-content: space-between;
          gap: 20px;
+         @media (max-width: $tablet) {
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+         }
 		}
 
 		&__left {
@@ -30,12 +38,19 @@
          flex-direction: column;
          justify-content: center;
          align-items: flex-start;
+         @media (max-width: $tablet) {
+            align-items: center;
+            max-width: 400px;
+         }
 		}
 
 		&__title {
          text-align: left;
          font-size: 50px;
          margin-bottom: 14px;
+         @media (max-width: $tablet) {
+            text-align: center;
+         }
 		}
 
 		&__text {
@@ -43,12 +58,15 @@
 		}
 
 		&__right {
-         max-width: 656px;
+         max-width: 556px;
          width: 100%;
          overflow: hidden;
          position: relative;
          padding-bottom: 23px;
          margin: 0 auto;
+         @media (max-width: $mobile) {
+            max-width: 100%;
+         }
 		}
 
       &__swiper {
@@ -58,22 +76,28 @@
       .swiper-container {
          position: relative;
          width: 100%; 
-         max-width: 656px; 
+         max-width: 696px; 
          margin: 0 auto; 
       }
-
 
 		&__wrapper {
          display: flex;
 		}
 
 		&__slide {
-         width: 100%;
+         width: 556px;
          display: flex;
          justify-content: flex-start;
          align-items: center;
-         gap: 50px;
-         @include adaptiveValue('padding-left', 94, 20);
+         gap: 30px;
+         padding-right: 42px;
+         @include adaptiveValue('padding-left', 94, 10);
+         @media (max-width: $tablet) {
+            justify-content: center;
+         }
+         @media (max-width: $mobileSmall) {
+            flex-direction: column;
+         }
 		}
 
 		&__img-right {
@@ -113,7 +137,7 @@
          position: absolute;
          display: flex;
          justify-content: center;
-         bottom: 0;
+         bottom: -23px;
          z-index: 50;
       }
 }
@@ -135,6 +159,13 @@
    &:hover {
       background-color: $textColorBlack;
    }
+   @media (max-width: $mobile) {
+      top: unset;
+      bottom: 0;
+   }
+   @media (max-width: $mobileSmall) {
+            bottom: 35%;
+         }
 }
 
 .my-money__swiper-button-next {
@@ -142,4 +173,7 @@
    svg {
       transform: rotate(180deg);
    }
+}
+   .my-money__swiper-button-prev {
+   left: 20px;
 }

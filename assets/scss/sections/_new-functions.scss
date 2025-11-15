@@ -16,6 +16,9 @@
          position: relative;
          display: flex;
          align-items: center;
+			@media (max-width: $tablet) {
+				display: none;
+			}
 		}
 
 		&__img-left {
@@ -34,12 +37,22 @@
 			gap: 14px;
 			justify-content: flex-start;	
 			align-items: flex-start;
+			@media (max-width: $tablet) {
+				width: 100%;
+				justify-content: space-between;
+			}
+			@media (max-width: $mobileSmall) {
+            flex-direction: column;
+         }
 		}
 
 		&__first {
          width: 505px;
          padding: 16px;
 			background-color: $textColorWhite;
+			@media (max-width: $tablet) {
+            width: 100%;
+         }
 		}
 
 		&__video-first {
@@ -47,6 +60,13 @@
          width: 100%;
          height: 329px;
          margin-bottom: 14px;
+			iframe {
+				width: 100%;
+				height: 100%;
+			}
+			@media (max-width: $mobileSmall) {
+            height: 250px;
+         }
 		}
 
 		&__title-first {
@@ -71,6 +91,9 @@
 
 		&__second {
 			width: 375px;
+			@media (max-width: $mobileSmall) {
+            width: 100%;
+         }
 		}
 
 		&__top-second {
@@ -95,8 +118,9 @@
          width: 253px;
          height: 143px;
 			z-index: 2;
-			img {
-				@extend %img;
+			iframe {
+				width: 100%;
+				height: 100%;
 			}
 		}
 
@@ -107,8 +131,9 @@
 			position: absolute;
          width: 206px;
          height: 115px;
-			img {
-				@extend %img;
+			iframe {
+				width: 100%;
+				height: 100%;
 			}
 		}
 
@@ -135,7 +160,6 @@
 			background-color: $textColorWhite;
 			width: 100%;
 			padding: 16px;
-			
 		}
 
 		&__block-bottom {
@@ -154,6 +178,9 @@
 		}
 
 		&__music {
+			@media (max-width: $tablet) {
+            width: 60%;
+         }
 		}
 
 		&__music-title {
@@ -168,7 +195,6 @@
 			font-weight: $bold;
 			line-height: 1.44;
 			margin-bottom: 14px;
-
 		}
 
 		&__music-links {
@@ -176,9 +202,6 @@
 			gap: 5px;
 			justify-content: space-between;
 			align-items: center;
-		}
-
-		&__item-links {
 		}
 
 		&__modal {

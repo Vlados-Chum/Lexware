@@ -1,16 +1,5 @@
 "use strict";
 
-// BURGER MENU
-document.addEventListener("click", handleClick);
-
-function handleClick(e) {
-    const targetElement = e.target;
-    if (targetElement.closest('.header__burger')) {
-        document.body.classList.toggle('burger-open');
-        document.body.classList.toggle('no-scroll');
-    }
-}
-
 // TABS FIRST
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -20,17 +9,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const tabsButtons = Array.from(TabsParent.querySelectorAll('[data-tabs-button]'));
     const tabsElements = Array.from(TabsParent.querySelectorAll('[data-tabs-element]'));
 
-    // Скрываем все элементы, кроме первого
     tabsElements.forEach((el, i) => {
         el.hidden = i !== 0;
     });
 
-    // Активируем первый таб
     if (tabsButtons.length > 0) {
         tabsButtons[0].classList.add('active');
     }
 
-    // Обработка кликов по табам
     TabsParent.addEventListener("click", function(e) {
         const clicked = e.target.closest('[data-tabs-button]');
         if (!clicked) return;
@@ -41,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
         clicked.classList.add('active');
         const index = tabsButtons.indexOf(clicked);
 
-        // Скрываем/показываем контент
         tabsElements.forEach((tab, i) => {
             tab.hidden = i !== index;
         });
@@ -57,17 +42,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const tabsButtons = Array.from(TabsParent.querySelectorAll('[data-tabs-button]'));
     const tabsElements = Array.from(TabsParent.querySelectorAll('[data-tabs-element]'));
 
-    // Скрываем все элементы, кроме первого
     tabsElements.forEach((el, i) => {
         el.hidden = i !== 0;
     });
 
-    // Активируем первый таб
     if (tabsButtons.length > 0) {
         tabsButtons[0].classList.add('active');
     }
 
-    // Обработка кликов по табам
     TabsParent.addEventListener("click", function(e) {
         const clicked = e.target.closest('[data-tabs-button]');
         if (!clicked) return;
@@ -78,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function() {
         clicked.classList.add('active');
         const index = tabsButtons.indexOf(clicked);
 
-        // Скрываем/показываем контент
         tabsElements.forEach((tab, i) => {
             tab.hidden = i !== index;
         });
@@ -94,17 +75,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const tabsButtons = Array.from(TabsParent.querySelectorAll('[data-tabs-button]'));
     const tabsElements = Array.from(TabsParent.querySelectorAll('[data-tabs-element]'));
 
-    // Скрываем все элементы, кроме первого
     tabsElements.forEach((el, i) => {
         el.hidden = i !== 0;
     });
 
-    // Активируем первый таб
     if (tabsButtons.length > 0) {
         tabsButtons[0].classList.add('active');
     }
 
-    // Обработка кликов по табам
     TabsParent.addEventListener("click", function(e) {
         const clicked = e.target.closest('[data-tabs-button]');
         if (!clicked) return;
@@ -115,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function() {
         clicked.classList.add('active');
         const index = tabsButtons.indexOf(clicked);
 
-        // Скрываем/показываем контент
         tabsElements.forEach((tab, i) => {
             tab.hidden = i !== index;
         });
@@ -178,9 +155,23 @@ document.addEventListener("DOMContentLoaded", function () {
     if (sliderFeedbacks.length) {
         sliderFeedbacks.forEach((container) => {
             const swiperFeedback = new Swiper(container, {
-                slidesPerView: 1.7,
+                slidesPerView: 1,
                 spaceBetween: 24,
                 loop: true,
+                breakpoints: {
+            480: {
+               slidesPerView: 1,
+            },
+            576: {
+               slidesPerView: 1,
+            },
+            768: {
+               slidesPerView: 1.4,
+            },
+            1024: {
+               slidesPerView: 1.8, 
+            }
+         },
 
                 navigation: {
                     prevEl: container.querySelector(".feedback__swiper-button-prev"),
@@ -199,28 +190,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
             });
 
-            // Функция для выравнивания высоты слайдов
             function equalizeSlides() {
                 const slides = container.querySelectorAll(".feedback__slide");
                 if (!slides.length) return;
 
                 let maxHeight = 0;
-                // Сбрасываем высоту всех слайдов перед вычислением
                 slides.forEach(slide => slide.style.height = "auto");
 
-                // Находим максимальную высоту среди слайдов
                 slides.forEach(slide => {
                     const h = slide.offsetHeight;
                     if (h > maxHeight) maxHeight = h;
                 });
 
-                // Устанавливаем одинаковую максимальную высоту для всех слайдов
                 slides.forEach(slide => slide.style.height = `${maxHeight}px`);
             }
 
-            // На случай загрузки изображений позже
             window.addEventListener("load", () => {
-                // Используем setTimeout, чтобы дать время на загрузку изображений
                 setTimeout(equalizeSlides, 50);
             });
 
@@ -231,114 +216,462 @@ document.addEventListener("DOMContentLoaded", function () {
 // SLIDER EVALUATION
 
 document.addEventListener("DOMContentLoaded", function () {
-    const sliderEvaluation = document.querySelectorAll(".evaluation__swiper");
+   const sliderEvaluation = document.querySelectorAll(".evaluation__swiper");
 
-    if (sliderEvaluation.length) {
-        sliderEvaluation.forEach((container) => {
-            const swiperEvaluation = new Swiper(container, {
-                slidesPerView: 2.2,
-                spaceBetween: 16,
-                loop: true,
+   if (!sliderEvaluation.length) return;
 
-                navigation: {
-                    prevEl: container.querySelector(".evaluation__swiper-button-prev"),
-                    nextEl: container.querySelector(".evaluation__swiper-button-next"),
-                },
+   sliderEvaluation.forEach((container) => {
+      const prevEl = container.querySelector(".evaluation__swiper-button-prev");
+      const nextEl = container.querySelector(".evaluation__swiper-button-next");
+      const paginationEl = container.querySelector(".evaluation__swiper-pagination");
 
-                pagination: {
-                    el: container.querySelector(".evaluation__swiper-pagination"),
-                    clickable: true,
-                },
-
-                on: {
-                    init: equalizeSlides,
-                    resize: equalizeSlides,
-                    update: equalizeSlides,
-                },
-            });
-
-            // Функция для выравнивания высоты слайдов
-            function equalizeSlides() {
-                const slides = container.querySelectorAll(".evaluation__slide");
-                if (!slides.length) return;
-
-                let maxHeight = 0;
-                // Сбрасываем высоту всех слайдов перед вычислением
-                slides.forEach(slide => slide.style.height = "auto");
-
-                // Находим максимальную высоту среди слайдов
-                slides.forEach(slide => {
-                    const h = slide.offsetHeight;
-                    if (h > maxHeight) maxHeight = h;
-                });
-
-                // Устанавливаем одинаковую максимальную высоту для всех слайдов
-                slides.forEach(slide => slide.style.height = `${maxHeight}px`);
+      const swiperEvaluation = new Swiper(container, {
+         slidesPerView: 1,
+         spaceBetween: 16,
+         loop: window.innerWidth >= 768, 
+         breakpoints: {
+            1024: {
+               slidesPerView: 2, 
             }
+         },
 
-            // На случай загрузки изображений позже
-            window.addEventListener("load", () => {
-                // Используем setTimeout, чтобы дать время на загрузку изображений
-                setTimeout(equalizeSlides, 50);
+         navigation: {
+            prevEl,
+            nextEl,
+         },
+
+         pagination: {
+            el: paginationEl,
+            clickable: true,
+         },
+
+         on: {
+            init() {
+               equalizeSlides();
+            },
+            resize() {
+               const shouldLoop = window.innerWidth >= 768;
+
+               if (this.params.loop !== shouldLoop) {
+                  this.loopDestroy();
+                  this.params.loop = shouldLoop;
+                  if (shouldLoop) this.loopCreate();
+                  this.update();
+               }
+
+               equalizeSlides();
+            },
+            imagesReady() {
+               equalizeSlides();
+            },
+            slideChangeTransitionEnd() {
+               equalizeSlides();
+            },
+         },
+      });
+
+      function equalizeSlides() {
+         const slides = container.querySelectorAll(
+            ".swiper-slide:not(.swiper-slide-duplicate).evaluation__slide, .swiper-slide:not(.swiper-slide-duplicate) .evaluation__slide"
+         );
+
+         if (!slides.length) return;
+
+         if (window.innerWidth < 768) {
+            slides.forEach(slide => {
+               slide.style.height = "auto";
             });
+            return;
+         }
 
-        });
-    }
+         let maxHeight = 0;
+
+         slides.forEach(slide => {
+            slide.style.height = "auto";
+         });
+
+         slides.forEach(slide => {
+            const h = slide.offsetHeight;
+            if (h > maxHeight) maxHeight = h;
+         });
+
+         slides.forEach(slide => {
+            slide.style.height = `${maxHeight}px`;
+         });
+      }
+
+      window.addEventListener("load", () => {
+         setTimeout(equalizeSlides, 50);
+      });
+   });
 });
+
 
 // SLIDER APPS
 
 document.addEventListener("DOMContentLoaded", function () {
-    const sliderApps = document.querySelectorAll(".apps__swiper");
+  document.querySelectorAll(".apps__swiper").forEach((container) => {
+    const swiperApps = new Swiper(container, {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      observer: true,
+      observeParents: true,
+      preloadImages: true,
+      watchSlidesProgress: true,
 
-    if (sliderApps.length) {
-        sliderApps.forEach((container) => {
-            const swiperApps = new Swiper(container, {
-                slidesPerView: 1,
-                loop: true,
+      navigation: {
+        prevEl: container.querySelector(".apps__swiper-button-prev"),
+        nextEl: container.querySelector(".apps__swiper-button-next"),
+      },
+      pagination: {
+        el: container.querySelector(".apps__swiper-pagination"),
+        clickable: true,
+      },
+      on: {
+        imagesReady() { this.update(); },
+        resize() { this.update(); },
+      },
+    });
 
-                navigation: {
-                    prevEl: container.querySelector(".apps__swiper-button-prev"),
-                    nextEl: container.querySelector(".apps__swiper-button-next"),
-                },
-
-                pagination: {
-                    el: container.querySelector(".apps__swiper-pagination"),
-                    clickable: true,
-                },
-
-                on: {
-                    init: equalizeSlides,
-                    resize: equalizeSlides,
-                    update: equalizeSlides,
-                },
-            });
-
-            // Функция для выравнивания высоты слайдов
-            function equalizeSlides() {
-                const slides = container.querySelectorAll(".apps__slide");
-                if (!slides.length) return;
-
-                let maxHeight = 0;
-                // Сбрасываем высоту всех слайдов перед вычислением
-                slides.forEach(slide => slide.style.height = "auto");
-
-                // Находим максимальную высоту среди слайдов
-                slides.forEach(slide => {
-                    const h = slide.offsetHeight;
-                    if (h > maxHeight) maxHeight = h;
-                });
-
-                // Устанавливаем одинаковую максимальную высоту для всех слайдов
-                slides.forEach(slide => slide.style.height = `${maxHeight}px`);
-            }
-
-            // На случай загрузки изображений позже
-            window.addEventListener("load", () => {
-                // Используем setTimeout, чтобы дать время на загрузку изображений
-                setTimeout(equalizeSlides, 50);
-            });
-
-        });
+    function equalizeSlides() {
+      const slides = container.querySelectorAll(".apps__slide");
+      if (!slides.length) return;
+      slides.forEach(s => s.style.height = "auto");
+      const max = Math.max(...[...slides].map(s => s.offsetHeight));
+      slides.forEach(s => s.style.height = max + "px");
     }
+
+    window.addEventListener("load", () => {
+      swiperApps.update();
+    });
+  });
+});
+
+// ONE-SYSTEM TABS-SLIDER
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabSliders = document.querySelectorAll('.tabs-slider');
+
+  tabSliders.forEach(root => {
+    const tabButtons = [...root.querySelectorAll('.tabs-slider__btn')];
+    const swiperContainer = root.querySelector('.tabs-slider__swiper');
+    const nextBtn = root.querySelector('.tabs-slider__swiper-button-next');
+    const prevBtn = root.querySelector('.tabs-slider__swiper-button-prev');
+    const tabsInfo = document.querySelectorAll('.one-system__wrapper-tabs'); 
+
+    const swiperTabs = new Swiper(swiperContainer, {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      loop: false,
+      pagination: {
+        el: root.querySelector('.tabs-slider__pagination'),
+        clickable: true,
+      },
+      navigation: {
+        nextEl: nextBtn,
+        prevEl: prevBtn,
+      },
+      on: {
+        init() {
+          setActiveTab(this.realIndex);
+          setActiveInfo(this.realIndex); 
+        },
+        slideChange() {
+          setActiveTab(this.realIndex);
+          setActiveInfo(this.realIndex); 
+        },
+      },
+    });
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const index = Number(btn.dataset.slide) || 0;
+        swiperTabs.slideTo(index, 400);
+      });
+    });
+
+    function setActiveTab(realIndex) {
+      tabButtons.forEach(b => b.classList.remove('is-active'));
+      const btn = tabButtons[realIndex];
+      if (btn) btn.classList.add('is-active');
+    }
+
+    function setActiveInfo(index) {
+      tabsInfo.forEach((section, i) => {
+        section.classList.remove('active');
+        if (i === index) {
+          section.classList.add('active');
+        }
+      });
+    }
+  });
+});
+
+// FIRST VIDEO MUTED
+
+document.addEventListener('DOMContentLoaded', () => {
+    const iframe = document.getElementById('videoIframe');
+    const iframeWindow = iframe.contentWindow;
+    let isMuted = true;
+
+    const videoContainer = document.getElementById('videoContainer');
+    
+    videoContainer.addEventListener('click', function() {
+        if (isMuted) {
+            iframeWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+            isMuted = false;
+        } else {
+            iframeWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+            isMuted = true;
+        }
+    });
+});
+
+// WINNER TABS-SLIDER
+
+document.addEventListener('DOMContentLoaded', function () {
+    const winnerSliders = document.querySelectorAll('.winner-slider');
+
+    winnerSliders.forEach(root => {
+        const winnerButtons = [...root.querySelectorAll('.winner-slider__btn')];
+        const swiperContainer = root.querySelector('.winner-slider__swiper');
+        const nextBtn = root.querySelector('.winner-slider__swiper-button-next');
+        const prevBtn = root.querySelector('.winner-slider__swiper-button-prev');
+
+        const swiperWinner = new Swiper(swiperContainer, {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            loop: false,
+            pagination: {
+                el: root.querySelector('.winner-slider__pagination'),
+                clickable: true,
+            },
+            navigation: {
+                nextEl: nextBtn,
+                prevEl: prevBtn,
+            },
+            on: {
+                init() {
+                    setActiveTab(this.realIndex); 
+                },
+                slideChange() {
+                    setActiveTab(this.realIndex);
+                },
+            },
+        });
+
+        
+        winnerButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const index = Number(btn.dataset.slide); 
+                swiperWinner.slideTo(index, 400); 
+            });
+        });
+
+        function setActiveTab(realIndex) {
+            winnerButtons.forEach(b => b.classList.remove('is-active')); 
+            const btn = winnerButtons[realIndex];
+            if (btn) btn.classList.add('is-active'); 
+        }
+    });
+});
+
+// THUMB SLIDER
+
+document.addEventListener('DOMContentLoaded', function () {
+   const sections = document.querySelectorAll('.worktime');
+
+   if (!sections.length) return;
+
+   sections.forEach(function (section) {
+      const mainSliderEl = section.querySelector('.worktime__slider');
+      const thumbsSliderEl = section.querySelector('.worktime__thumbs');
+
+      if (!mainSliderEl || !thumbsSliderEl) return;
+
+      const prevBtn = section.querySelector('.worktime__swiper-button-prev');
+      const nextBtn = section.querySelector('.worktime__swiper-button-next');
+      const mainPaginationEl = section.querySelector('.worktime__pagination');
+      const thumbsPaginationEl = section.querySelector('.worktime__pagination-thumb');
+
+      const thumbsOptions = {
+         slidesPerView: 2,
+         spaceBetween: 10,
+         watchSlidesProgress: true,
+         slideToClickedSlide: true,
+         breakpoints: {
+            480: {
+               slidesPerView: 3,
+            },
+            576: {
+               slidesPerView: 4,
+            },
+            768: {
+               slidesPerView: 4,
+            },
+            1024: {
+               slidesPerView: 5, 
+            }
+         }
+      };
+
+      if (thumbsPaginationEl) {
+         thumbsOptions.pagination = {
+            el: thumbsPaginationEl,
+            clickable: true
+         };
+      }
+
+      const thumbsSwiper = new Swiper(thumbsSliderEl, thumbsOptions);
+
+      const mainOptions = {
+         slidesPerView: 1,       
+         speed: 600,
+         centeredSlides: false,
+         spaceBetween: 150,
+         navigation: {
+            nextEl: nextBtn,
+            prevEl: prevBtn
+         },
+         thumbs: {
+            swiper: thumbsSwiper
+         },
+         observer: true,
+         observeParents: true
+      };
+
+      if (mainPaginationEl) {
+         mainOptions.pagination = {
+            el: mainPaginationEl,
+            clickable: true
+         };
+      }
+
+      const mainSwiper = new Swiper(mainSliderEl, mainOptions);
+   });
+});
+
+
+// PAGE SIDE
+
+document.addEventListener('DOMContentLoaded', function () {
+   const fixedSide = document.querySelector('.account__fixed-side');
+   const accountSection = document.getElementById('account');
+
+   if (!fixedSide || !accountSection) return;
+
+   const menuLinks = fixedSide.querySelectorAll('a[href^="#"]');
+   if (!menuLinks.length) return;
+
+   const items = [];
+
+   menuLinks.forEach(link => {
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+
+      const id = hash.slice(1);
+      const section = document.getElementById(id);
+      if (!section) return;
+
+      const li = link.closest('li');
+      if (!li) return;
+
+      items.push({ id, section, li, link });
+   });
+
+   if (!items.length) return;
+
+   let accountTop = accountSection.getBoundingClientRect().top + window.scrollY;
+
+   function clearActive() {
+      items.forEach(i => i.li.classList.remove('is-active'));
+   }
+
+   function setActiveBySection(section) {
+      const item = items.find(i => i.section === section);
+      if (!item) return;
+
+      clearActive();
+      item.li.classList.add('is-active');
+   }
+
+   function updateOnScroll() {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const viewportBottom = scrollY + viewportHeight;
+      const viewportCenter = scrollY + viewportHeight / 2;
+
+      if (viewportBottom > accountTop) {
+         fixedSide.classList.add('is-visible');
+      } else {
+         fixedSide.classList.remove('is-visible');
+      }
+
+      if (viewportCenter < accountTop) {
+         clearActive();
+         return;
+      }
+
+      let current = null;
+      let currentTop = -Infinity;
+
+      items.forEach(item => {
+         const rect = item.section.getBoundingClientRect();
+         const top = rect.top + window.scrollY;
+         const bottom = top + item.section.offsetHeight;
+
+         if (viewportCenter >= top && viewportCenter < bottom) {
+            if (top > currentTop) {
+               currentTop = top;
+               current = item;
+            }
+         }
+      });
+
+      clearActive();
+
+      if (current) {
+         current.li.classList.add('is-active');
+      }
+   }
+
+   menuLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+         const hash = this.getAttribute('href');
+         if (!hash || hash === '#') return;
+
+         const id = hash.slice(1);
+         const section = document.getElementById(id);
+         if (!section) return;
+
+         setTimeout(updateOnScroll, 200);
+      });
+   });
+
+   window.addEventListener('resize', () => {
+      accountTop = accountSection.getBoundingClientRect().top + window.scrollY;
+      updateOnScroll();
+   });
+
+   window.addEventListener('scroll', updateOnScroll);
+
+   const initialHash = window.location.hash;
+   if (initialHash) {
+      const link = fixedSide.querySelector('a[href="' + initialHash + '"]');
+      if (link) {
+         const id = initialHash.slice(1);
+         const section = document.getElementById(id);
+         if (section) {
+            setTimeout(() => {
+               setActiveBySection(section);
+               updateOnScroll();
+            }, 200);
+         }
+      } else {
+         updateOnScroll();
+      }
+   } else {
+      updateOnScroll();
+   }
 });

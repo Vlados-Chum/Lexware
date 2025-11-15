@@ -25,17 +25,29 @@
          justify-content: space-between;
          gap: 30px;
          align-items: flex-start;
+         @media (max-width: $tablet) {
+            flex-direction: column;
+         }
 		}
 
       &__bottom {
          display: flex;
          justify-content: center;
          align-items: center;
+         @media (max-width: $tablet) {
+            justify-content: flex-start;;
+         }
       }
 
       &__link {
          background-color: $buttonColor;
          color: $textColorWhite;
          margin-top: 50px;
+      }
+
+      .right__pic {
+         @media (max-width: $tablet) {
+            width: 100%;
+         }
       }
 }

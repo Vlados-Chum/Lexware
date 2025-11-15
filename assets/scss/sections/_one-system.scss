@@ -1,0 +1,298 @@
+// ONE-SYSTEM
+
+.one-system {
+   @include adaptiveValue('margin-bottom', 100, 60);
+
+      &__block {
+         width: 100%;
+      }
+
+		&__head {
+         text-align: center;
+         margin-bottom: 49px;
+		}
+
+		&__title {
+         margin-bottom: 14px;
+		}
+
+		&__tabs-slider {
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+         align-items: center;
+		}
+
+      &__info {
+         display: flex;
+         justify-content: flex-end;
+         align-items: flex-end;
+         gap: 6px;
+         transition: all 0.3 ease-in-out;
+         position: relative;
+         z-index: 2;
+		}
+
+		&__label {
+         width: 166px;
+         height: 85px;
+         overflow: hidden;
+         position: relative;
+         right: 350px;
+         img {
+            @extend %img;
+         }
+         @media (max-width: $mobileSmall) {
+            display: none;
+         }
+		}
+
+      &__tabs-info {
+         width: 362px;
+         padding: 16px;
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+         justify-content: flex-start;
+         align-items: flex-start;
+         background-color: #FF4554;
+         color: $textColorWhite;
+         animation: moveUpDown 5s ease-in-out infinite;
+         position: absolute;
+         right: 0;
+         bottom: 0;
+         @media (max-width: $mobileSmall) {
+            width: 300px;
+            bottom: -100px;
+         }
+      }
+
+   .tabs-info {
+
+      &__title {
+         font-size: 20px;
+         font-weight: $semiBold;
+         line-height: 1.5;
+      }
+   
+      &__list {
+         padding-left: 30px;
+         display: flex;
+         flex-direction: column;
+         gap: 18px;
+         justify-content: flex-start;
+         align-items: flex-start;
+         counter-reset: list-counter; 
+      }
+   
+      &__item {
+         padding-left: 18px;
+         counter-increment: list-counter; 
+         position: relative; 
+         display: flex;
+        
+         &::before {
+            content: counter(list-counter) ". "; 
+            position: absolute;
+            left: -30px; 
+            top: 0;
+            font-weight: $bold;
+            color: #FF4554;
+            font-size: 18px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: $textColorWhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+      }
+
+     &__text-item {
+       font-size: 18px;
+       font-weight: $medium;
+       line-height: 1.22;
+     }
+
+     @keyframes moveUpDown {
+     0% {
+       transform: translateY(0); 
+     }
+     50% {
+       transform: translateY(-50px); 
+     }
+     100% {
+       transform: translateY(0); 
+     }
+   }
+   }
+
+   .tabs-slider {
+      position: relative;
+      margin-bottom: 29px;
+
+		&__head {
+         position: relative;
+         margin-bottom: 49px;
+		}
+
+      &__side {
+         position: absolute;
+         right: -250px;
+         top: -80px;
+         width: 160px;
+         height: 192px;
+         display: flex;
+         flex-direction: column;
+         gap: 18px;
+         justify-content: flex-start;
+         align-items: flex-start;
+         z-index: 2;
+         @media (max-width: 1200px) {
+            right: -164px;
+         }
+         @media (max-width: $tablet) {
+            display: none;
+         }
+      }
+
+      &__text-side {
+         color: $textColorBlack;
+         font-size: 24px;
+         font-weight: $bold;
+         line-height: 1.25;
+         span {
+            color: #FF4554;
+         }
+      }
+
+      &__arrow {
+         width: 76px;
+         overflow: hidden;
+         position: relative;
+         right: -20px;
+         z-index: 3;
+         img {
+            @extend %img;
+         }
+      }
+
+		&__tabs {
+         display: flex;
+         justify-content: center;
+         align-items: flex-start;
+         flex-wrap: wrap;
+         @media (max-width: $mobile) {
+            gap: 20px;
+         }
+		}
+
+		&__btn {
+         width: 175px;
+         display: flex;
+         padding: 23px 28px;
+         justify-content: center;
+         align-items: center;
+         color: $textColorBlack;
+         font-weight: $semiBold;
+         line-height: 1.44;
+         cursor: pointer;
+         border: 1px solid #D3CACA;
+         background-color: #FCFAFA;
+		}
+
+      &__btn.is-active {
+         background-color:#FF4554; 
+         color:#fff; 
+         border-color:#FF4554;
+      }
+
+		&__swiper {
+         max-width: 1000px;
+         width: 100%;
+         overflow: hidden;
+         outline: 1px solid #D3CACA;
+         position: relative;
+		}
+
+		&__wrapper {
+         width: 100%;
+         outline: 1px solid #D3CACA;
+         border-radius: 12px;
+		}
+
+		&__slide {
+         width: 100%;
+         overflow: hidden;
+         outline: 1px solid #D3CACA;
+         border-radius: 12px;
+         img {
+            @extend %img;
+         }
+		}
+
+		&__controls {
+         width: 100%;
+         position: relative;
+         display: flex;
+         justify-content: space-between;
+         @media (max-width: $tablet) {
+           position: absolute;
+           left: 20%;
+           bottom: -96px;
+           justify-content: flex-start;
+         }
+         @media (max-width: $mobile) {
+            left: 0;
+         }
+		}
+
+		&__swiper-button-prev,
+      &__swiper-button-next {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: 43px;
+         height: 43px;
+         border-radius: 36px;
+         border: 1px solid #A79797;
+         background: rgba(255, 255, 255, 0.6); 
+         cursor: pointer;
+         z-index: 20;
+         position: absolute;
+         bottom: 355px;
+         transition: all .2s ease-in-out;
+         @media (max-width: 992px) {
+            bottom: 0;
+         }
+         &:hover {
+            background-color: $textColorBlack;
+         }
+      }
+
+      &__swiper-button-next {
+         right: 0;
+         svg {
+            transform: rotate(180deg);
+         }
+         @media (max-width: $tablet) {
+            left: 60px;
+         }
+      }
+
+      &__swiper-button-prev {
+         left: 0;
+      }
+   }
+}
+
+.one-system__wrapper-tabs {
+   transition: all 0.3 ease-in-out;
+   display: none;
+}
+
+.one-system__wrapper-tabs.active {
+   display: block;
+}

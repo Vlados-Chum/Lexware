@@ -3,13 +3,15 @@
 .evaluation {
    @include adaptiveValue('margin-bottom', 100, 60);
 
-		&__container {
-		}
-
 		&__block {
          display: flex;
          align-items: center;
          gap: 42px;
+         @media (max-width: $mobile) {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 24px;
+         }
 		}
 
 		&__box-left {
@@ -23,6 +25,9 @@
          flex-direction: column;
          gap: 14px;
          justify-content: flex-start;
+         @media (max-width: $mobile) {
+            width: 100%;
+         }
 		}
 
 		&__img-left {
@@ -105,15 +110,23 @@
 
 		&__right {
          padding-block: 11px;
+         @media (max-width: $mobile) {
+            padding-block: 0;
+            width: 100%;
+         }
 		}
 
       &__title {
          max-width: 900px;
-         text-align-last: left;
+         text-align: left;
          margin-bottom: 42px;
+         @media (max-width: $mobile) {
+            text-align: center;
+         }
 		}
 
 		&__swiper {
+         width: 100%;
          overflow: hidden;
 		}
 
@@ -129,6 +142,9 @@
          gap: 18px;
          justify-content: flex-start;
          cursor: grab;
+         @media (max-width: $mobile) {
+            max-width: 100%;
+         }
 		}
 
 		&__verified {
@@ -175,23 +191,19 @@
           width: 4px;  
       }
       
-     .evaluation__text::-webkit-scrollbar-thumb {
+      .evaluation__text::-webkit-scrollbar-thumb {
           background-color: #141010; 
       }
 
       .evaluation__text::-webkit-scrollbar-track {
           background-color: #EBE7E7; 
       }
-         
 
 		&__date {
          color: rgba(20, 16, 16, 0.74);
          font-size: 20px;
          font-weight: $regular;
          line-height: 1.5;
-		}
-
-		&__swiper-button-prev {
 		}
 
 		.swiper-pagination-bullet {
@@ -211,17 +223,8 @@
          z-index: 50;
       }
 
-		&__swiper-button-next {
-		}
-
-      .swiper-container {
-      }
-
       .swiper-wrapper {
          margin-bottom: 42px;
-      }
-
-      .swiper-slide {
       }
 
       .swiper-controls {
@@ -230,6 +233,9 @@
          align-items: center;
          gap: 50px;
          width: 252px;
+         @media (max-width: $mobile) {
+            justify-content: center;
+         }
       }
 
       &__swiper-button-prev, 
@@ -257,6 +263,4 @@
             transform: rotate(180deg);
          }
       }
-
 }
-

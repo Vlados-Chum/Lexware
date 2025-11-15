@@ -28,9 +28,11 @@
 		&__slide {
          cursor: grab;
          max-width: 700px;
-         height: 366px;
          background-color: $textColorWhite;
          display: flex;
+         @media (max-width: $mobileSmall) {
+            align-items: flex-start;
+         }
 		}
 
 		&__img {
@@ -42,10 +44,17 @@
             height: 100%;
             object-fit: cover !important;
          }
+         @media (max-width: $mobileSmall) {
+            width: 150px;
+            padding-top: 20px;
+         }
 		}
 
 		&__plot {
          padding: 34px;
+          @media (max-width: $mobileSmall) {
+            padding: 15px;
+         }
 		}
 
 		&__name {
@@ -71,6 +80,9 @@
          margin-bottom: 34px;
          img {
             @extend %img;
+         }
+         @media (max-width: $mobileSmall) {
+            margin-bottom: 10px;
          }
 		}
 
@@ -112,6 +124,9 @@
           display: flex;
           justify-content: center; 
           align-items: center; 
+         @media (max-width: $mobileSmall) {
+            align-items: flex-start;
+         }
       }
 
       .swiper-pagination-bullet {
@@ -163,6 +178,4 @@
       .feedback__swiper-button-prev {
          right: 60px;
       }
-
 }
-

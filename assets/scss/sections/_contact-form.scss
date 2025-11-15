@@ -43,7 +43,6 @@
          position: relative;
          max-width: 492px;
          width: 100%;
-
 		}
 
       &__input-email {
@@ -91,6 +90,13 @@
          font-weight: $bold;
          line-height: 1.7;
          text-align: left;
+         @media (max-width: $tablet) {
+            top: 150px;
+            right: 90px;
+         }
+         @media (max-width: $mobile) {
+            display: none;
+         }
 		}
 
 		&__arrow {

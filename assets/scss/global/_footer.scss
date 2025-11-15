@@ -4,8 +4,8 @@
    background-color: $textColorBlack;
 
    &__container {
-   padding-top: 40px;
-   padding-bottom: 40px;
+      padding-top: 40px;
+      padding-bottom: 40px;
    }
    
 		&__block {
@@ -46,13 +46,4 @@
       a:first-child {
          padding-left: 0;
       }
-
-		&__impressum {
-		}
-
-		&__datenschutz {
-		}
-
-		&__privacy {
-		}
 }

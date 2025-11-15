@@ -54,6 +54,10 @@
 		gap: 20px;
 		justify-content: space-between;
 		align-items: flex-start;
+		@media (max-width: $mobileSmall) {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 
 	&__left-body {
@@ -76,6 +80,10 @@
 		height: 130px;
 		right: 24px;
 		bottom: 7px;
+		@media (max-width: $mobile) {
+            width: 100px;
+				height: 100px;
+         }
 	}
 
 	&__label-two {
@@ -83,6 +91,11 @@
 		width: 114px;
 		height: 114px;
 		bottom: 14px;
+		@media (max-width: $mobile) {
+            width: 82px;
+				height: 82px;
+				right: 135px;
+         }
 	}
 
 	&__img-left {
@@ -96,6 +109,9 @@
 
 	&__right-body {
 		width: 37%;
+		@media (max-width: $mobileSmall) {
+			width: 250px;
+		}
 	}
 
 	&__right-title {
@@ -139,13 +155,9 @@
 		}
 	}
 
-	&__item-text {
-	}
-
 	&__start-button {
 		max-width: 250px;
 		background-color: $textColorWhite;
 		color: #131010;
 	}
 }
-
