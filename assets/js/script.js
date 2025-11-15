@@ -128,24 +128,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // MODALS
 
-    const newFunctionsVideo = document.querySelectorAll('.new-functions__video');
-    const newFunctionsModal = document.querySelector('.new-functions__modal')
+   document.addEventListener('DOMContentLoaded', function () {
+   const triggers = document.querySelectorAll('.new-functions__video');
+   const modal = document.querySelector('.new-functions__modal');
 
-    newFunctionsVideo.forEach(elem => {
-        elem.addEventListener('click', (e) => {
-            e.preventDefault()
+   if (!modal || !triggers.length) return;
 
-            newFunctionsModal.classList.add('active');
-            newFunctionsModal.querySelector('video').src = elem.dataset.video
-        })
-    });
+   const modalInner = modal.querySelector('.new-functions__modal-inner');
+   const modalVideo = modal.querySelector('video');
 
-        newFunctionsModal.addEventListener('click', (e) => {
-        if(e.target !== e.currentTarget) return;
+   if (!modalInner || !modalVideo) return;
 
-        newFunctionsModal.classList.remove('active');
-        newFunctionsModal.querySelector('video').src = ''
-    })
+   function openModal(src) {
+      if (!src) return;
+
+      modalVideo.src = src;
+      modalVideo.currentTime = 0;
+      modal.classList.add('active');
+
+      const playPromise = modalVideo.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+         playPromise.catch(() => {
+         });
+      }
+   }
+
+   function closeModal() {
+      modal.classList.remove('active');
+      modalVideo.pause();
+      modalVideo.currentTime = 0;
+      modalVideo.removeAttribute('src');
+      modalVideo.load();
+   }
+
+   triggers.forEach(elem => {
+      elem.addEventListener('click', (e) => {
+         e.preventDefault();
+         const src = elem.dataset.video;
+         openModal(src);
+      });
+   });
+
+   document.addEventListener('click', (e) => {
+      if (!modal.classList.contains('active')) return;
+
+      const target = e.target;
+
+      if (modalInner.contains(target)) return;
+
+      if ([...triggers].some(tr => tr.contains(target))) return;
+
+      closeModal();
+   });
+
+   document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+         closeModal();
+      }
+   });
+});
 
 // SLIDER FEEDBACK
 
