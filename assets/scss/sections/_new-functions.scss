@@ -214,13 +214,15 @@
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			// inset: 0;
 			z-index: 1000;
 			transform: translate(-50%, -50%);
 			width: 730px;
 			height: 414px;
 			overflow: hidden;
 			z-index: 10;
+			@media (max-width:480px) {
+				display: none !important;
+			}
 			&.active {
          display: block;
       	}

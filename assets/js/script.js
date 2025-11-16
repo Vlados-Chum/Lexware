@@ -605,6 +605,8 @@ document.addEventListener('DOMContentLoaded', function () {
    const menuLinks = fixedSide.querySelectorAll('a[href^="#"]');
    if (!menuLinks.length) return;
 
+   const MOBILE_BREAKPOINT = 480;
+
    const items = [];
 
    menuLinks.forEach(link => {
@@ -625,6 +627,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
    let accountTop = accountSection.getBoundingClientRect().top + window.scrollY;
 
+   const isMobile = () => window.innerWidth < MOBILE_BREAKPOINT;
+
    function clearActive() {
       items.forEach(i => i.li.classList.remove('is-active'));
    }
@@ -637,7 +641,22 @@ document.addEventListener('DOMContentLoaded', function () {
       item.li.classList.add('is-active');
    }
 
+   function handleMobileVisibility() {
+      if (isMobile()) {
+         fixedSide.classList.remove('is-visible');
+         fixedSide.classList.add('is-hidden-mobile');
+         clearActive();
+         return true; // значит, сейчас мобильный вид и дальше логику не запускаем
+      } else {
+         fixedSide.classList.remove('is-hidden-mobile');
+         return false;
+      }
+   }
+
    function updateOnScroll() {
+      // если мобильный, просто выходим
+      if (handleMobileVisibility()) return;
+
       const scrollY = window.scrollY;
       const viewportHeight = window.innerHeight;
       const viewportBottom = scrollY + viewportHeight;
@@ -678,7 +697,7 @@ document.addEventListener('DOMContentLoaded', function () {
    }
 
    menuLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
+      link.addEventListener('click', function () {
          const hash = this.getAttribute('href');
          if (!hash || hash === '#') return;
 
