@@ -50,7 +50,7 @@
 .discount-button {
    display: flex;
    max-width: 250px;
-   padding: 21px 45px;
+   padding: 11px 30px 12px 30px;
    justify-content: center;
    align-items: center;
    gap: 10px;
@@ -79,8 +79,9 @@
 
 .start-button {
    display: flex;
-   max-width: 300px;
-   padding: 21px 45px;
+   max-width: 250px;
+   width: 100%;
+   padding: 11px 30px 12px 30px;
    justify-content: center;
    align-items: center;
    gap: 10px;
@@ -153,7 +154,7 @@
          line-height: 1.7;
          cursor: pointer;
          &:hover,
-         &:active {
+         &.active {
             color: $textColorWhite;
             background-color: #FF4554;
          }

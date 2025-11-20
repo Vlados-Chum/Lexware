@@ -262,7 +262,10 @@
 		}
 
 		&__button {
-			max-width: 280px;
+			max-width: 250px;
+			span {
+				line-height: 1.7;
+			}
 		}
 
 		&__text {

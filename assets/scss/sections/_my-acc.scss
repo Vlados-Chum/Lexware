@@ -29,11 +29,18 @@
 			margin-bottom: 14px;
 		}
 
-		&__text-head {
+		&__text {
 			position: relative;
 			span {
 				font-weight: $bold;
 			}
+		}
+
+		&__hint {
+			color: $textColorBlack;
+			font-size: 20px;
+			font-weight: $bold;
+			line-height: 1.5;
 		}
 
 		&__body {

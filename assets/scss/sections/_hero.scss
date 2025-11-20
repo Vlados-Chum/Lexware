@@ -47,6 +47,19 @@
 		font-style: normal;
 		font-weight: $bold;
 		line-height: 1.7;
+		span {
+			position: relative;
+		}
+		span::before {
+			content: '';
+			position: absolute;
+			z-index: 1;
+			bottom: -1px;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: $textColorWhite;
+		}
 	}
 
 	&__body {
@@ -156,7 +169,7 @@
 	}
 
 	&__start-button {
-		max-width: 250px;
+		max-width: 200px;
 		background-color: $textColorWhite;
 		color: #131010;
 	}
