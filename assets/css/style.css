@@ -532,7 +532,9 @@ textarea {
   transition: all 0.2s ease-in-out;
 }
 .right__button span {
-  width: 320px;
+  width: auto;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .right__button:hover {
   text-shadow: 0 0 1px #FF4554;

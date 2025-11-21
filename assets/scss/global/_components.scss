@@ -297,7 +297,8 @@
 			line-height: 1.5;
          transition: all .2s ease-in-out;
          span {
-            width: 320px;
+            width: auto;
+            flex-shrink: 0;
          }
          &:hover {
             text-shadow: 0 0 1px #FF4554;
