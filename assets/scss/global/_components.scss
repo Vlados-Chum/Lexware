@@ -221,7 +221,7 @@
 		}
 
       &__desc {
-         width: 315px;
+         max-width: 355px;
          @media (max-width: $tablet) {
             width: 50%;
          }
@@ -296,6 +296,9 @@
 			font-weight: $bold;
 			line-height: 1.5;
          transition: all .2s ease-in-out;
+         span {
+            width: 320px;
+         }
          &:hover {
             text-shadow: 0 0 1px #FF4554;
          }

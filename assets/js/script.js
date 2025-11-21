@@ -257,95 +257,46 @@ document.addEventListener("DOMContentLoaded", function () {
 // SLIDER EVALUATION
 
 document.addEventListener("DOMContentLoaded", function () {
-   const sliderEvaluation = document.querySelectorAll(".evaluation__swiper");
+    const sliderEvaluation = document.querySelectorAll(".evaluation__swiper");
 
-   if (!sliderEvaluation.length) return;
+    if (sliderEvaluation.length) {
+        sliderEvaluation.forEach((container) => {
 
-   sliderEvaluation.forEach((container) => {
-      const prevEl = container.querySelector(".evaluation__swiper-button-prev");
-      const nextEl = container.querySelector(".evaluation__swiper-button-next");
-      const paginationEl = container.querySelector(".evaluation__swiper-pagination");
-
-      const swiperEvaluation = new Swiper(container, {
-         slidesPerView: 1,
-         spaceBetween: 16,
-         loop: window.innerWidth >= 768, 
-         breakpoints: {
+            const swiperEvaluation = new Swiper(container, {
+                slidesPerView: 2,
+                loop: true,
+                spaceBetween: 16,
+                slidesPerGroup: 1,
+                breakpoints: {
+            480: {
+               slidesPerView: 1,
+            },
+            576: {
+               slidesPerView: 1,
+            },
+            768: {
+               slidesPerView: 1.2,
+            },
             1024: {
                slidesPerView: 2, 
             }
          },
 
-         navigation: {
-            prevEl,
-            nextEl,
-         },
-
-         pagination: {
-            el: paginationEl,
-            clickable: true,
-         },
-
-         on: {
-            init() {
-               equalizeSlides();
+                navigation: {
+                prevEl: container.querySelector(".evaluation__swiper-button-prev"),
+                nextEl: container.querySelector(".evaluation__swiper-button-next"),
             },
-            resize() {
-               const shouldLoop = window.innerWidth >= 768;
 
-               if (this.params.loop !== shouldLoop) {
-                  this.loopDestroy();
-                  this.params.loop = shouldLoop;
-                  if (shouldLoop) this.loopCreate();
-                  this.update();
-               }
-
-               equalizeSlides();
+            pagination: {
+                el: container.querySelector(".evaluation__swiper-pagination"),
+                clickable: true,
             },
-            imagesReady() {
-               equalizeSlides();
-            },
-            slideChangeTransitionEnd() {
-               equalizeSlides();
-            },
-         },
-      });
-
-      function equalizeSlides() {
-         const slides = container.querySelectorAll(
-            ".swiper-slide:not(.swiper-slide-duplicate).evaluation__slide, .swiper-slide:not(.swiper-slide-duplicate) .evaluation__slide"
-         );
-
-         if (!slides.length) return;
-
-         if (window.innerWidth < 768) {
-            slides.forEach(slide => {
-               slide.style.height = "auto";
+                
             });
-            return;
-         }
-
-         let maxHeight = 0;
-
-         slides.forEach(slide => {
-            slide.style.height = "auto";
-         });
-
-         slides.forEach(slide => {
-            const h = slide.offsetHeight;
-            if (h > maxHeight) maxHeight = h;
-         });
-
-         slides.forEach(slide => {
-            slide.style.height = `${maxHeight}px`;
-         });
-      }
-
-      window.addEventListener("load", () => {
-         setTimeout(equalizeSlides, 50);
-      });
-   });
+        });
+    }
 });
+
 
 
 // SLIDER APPS

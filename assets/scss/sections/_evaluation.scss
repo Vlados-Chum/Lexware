@@ -110,6 +110,9 @@
 
 		&__right {
          padding-block: 11px;
+         min-width: 0;
+         flex-grow: 1;
+         flex-shrink: 1;
          @media (max-width: $mobile) {
             padding-block: 0;
             width: 100%;
@@ -132,8 +135,7 @@
 
 		&__slide {
          max-width: 461px;
-         width: 100%;
-         padding: 30px;
+
          background-color: $textColorWhite;
          border: 1px solid #E1EAE5;
          box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.03);
@@ -146,6 +148,17 @@
             max-width: 100%;
          }
 		}
+
+      &__slide-inner {
+         padding: 30px;
+         margin: 0 auto;      
+         display: flex;
+         flex-direction: column;
+         gap: 18px;
+         @media (max-width: $mobile) {
+            max-width: 100%;
+         }
+      }
 
 		&__verified {
          display: flex;
